@@ -34,7 +34,7 @@ significantly degrades performance when running within a VM.*
 ### Install tile-archive-utils
 
 ```bash
-pip install -e .
+pip install tile-archive-utils
 ```
 
 ## Commands
