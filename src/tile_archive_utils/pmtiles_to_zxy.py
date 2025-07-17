@@ -224,9 +224,9 @@ class PMTilesExtractor:
                     completed_dirs_at_start += 1
 
         if completed_dirs_at_start > 0:
-            print(self._bold(f"\nStarting extraction "
+            print(self._bold("\nStarting extraction "
                              f"({completed_dirs_at_start}/{total_dirs} "
-                             f"directories already complete)."))
+                             "directories already complete)."))
 
         try:
             # Process each zoom level
@@ -261,7 +261,7 @@ class PMTilesExtractor:
 
 
 @click.command()
-@click.argument('pmtiles_path', type=click.Path(exists=True, dir_okay=False, 
+@click.argument('pmtiles_path', type=click.Path(exists=True, dir_okay=False,
                                                 path_type=Path))
 @click.argument('output_dir', type=click.Path(path_type=Path))
 @click.argument('min_zoom', type=int)
@@ -282,17 +282,17 @@ def main(pmtiles_path, output_dir, min_zoom, max_zoom):
 
     Example:
 
-       # Extract zoom levels 0-10 from map.pmtiles to ./tiles/
+       # Extract zoom levels 0-10 from map.pmtiles to the directory tiles
 
-       pmtiles-zxy map.pmtiles ./tiles/ 0 10
+       pmtiles-zxy tileset.pmtiles tiles 0 10
     """
     # Check if GDAL is installed
     try:
         from osgeo import gdal
     except ImportError:
-        print(self._bold(f"\nError: GDAL Python bindings not found"))
-        print("  Check the README.md file for installation options")
-        print("  conda install -c conda-forge gdal is recommended")
+        print("\nError: GDAL Python bindings not found")
+        print("Check the README.md file for installation options")
+        print("conda install -c conda-forge gdal is recommended")
         sys.exit(1)
 
     # Validate zoom level arguments

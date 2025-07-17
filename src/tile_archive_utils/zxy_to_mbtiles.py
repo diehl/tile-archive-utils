@@ -309,19 +309,19 @@ def main(zxy_dir, mbtiles_path, name, description, tile_format, batch_size):
 
        # Basic conversion
 
-       zxy-mbtiles ./tiles/ tileset.mbtiles
+       zxy-mbtiles tiles tileset.mbtiles
 
        # With custom metadata
 
-       zxy-mbtiles ./tiles/ tileset.mbtiles
+       zxy-mbtiles tiles tileset.mbtiles
 
                    --name "Hillshade tiles"
 
                    --description "Pre-rendered terrain data"
 
-       # With tile format specified
+       # With tile format and batch size specified
 
-       zxy-mbtiles ./tiles/ tileset.mbtiles --format jpg
+       zxy-mbtiles tiles tileset.mbtiles --format jpg --batchsize 10000
     """
     # Validate that the ZXY directory contains zoom level directories
     zoom_dirs = [d for d in zxy_dir.iterdir() if d.is_dir()

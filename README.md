@@ -51,8 +51,8 @@ pmtiles-zxy <PMTiles archive> <output directory> <min zoom> <max zoom>
 
 **Example:**
 ```bash
-# Extract zoom levels 0-10 from map.pmtiles to ./tiles/
-pmtiles-zxy map.pmtiles ./tiles/ 0 10
+# Extract zoom levels 0-10 from map.pmtiles to the directory tiles
+pmtiles-zxy tileset.pmtiles tiles 0 10
 ```
 
 **Features:**
@@ -73,19 +73,19 @@ zxy-mbtiles <ZXY directory> <output MBTiles file> [options]
 **Options:**
 - `--name <string>`: Tileset name
 - `--description <string>`: Tileset description
-- `--format <format>`: Tile format (default: "png", supports: png, jpg, webp, pbf)
+- `--format <format>`: Tile format (default: png, supports: png, jpg, webp, pbf)
 - `--batchsize <integer>`: Tile batch size for database inserts (default: 1000)
 
 **Examples:**
 ```bash
 # Basic conversion
-zxy-mbtiles ./tiles/ tileset.mbtiles
+zxy-mbtiles tiles tileset.mbtiles
 
 # With custom metadata
-zxy-mbtiles ./tiles/ tileset.mbtiles --name "Hillshade tiles" --description "Pre-rendered terrain data"
+zxy-mbtiles tiles tileset.mbtiles --name "Hillshade tiles" --description "Pre-rendered terrain data"
 
 # With tile format and batch size specified
-zxy-mbtiles ./tiles/ tileset.mbtiles --format jpg --batchsize 10000
+zxy-mbtiles tiles tileset.mbtiles --format jpg --batchsize 10000
 ```
 
 **Features:**
