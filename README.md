@@ -26,7 +26,7 @@ pip install gdal
 brew install gdal
 pip install gdal
 ```
-Ensure the GDAL library and Python binding versions are matched for proper execution.
+Ensure the GDAL library and Python binding versions match for proper execution.
 
 *Note that Docker is discouraged for use with this package as the volume of file I/O
 significantly degrades performance when running within a VM.*
@@ -34,7 +34,7 @@ significantly degrades performance when running within a VM.*
 ### Install tile-archive-utils
 
 ```bash
-uv pip install -e .
+pip install -e .
 ```
 
 ## Commands
@@ -71,24 +71,27 @@ zxy-mbtiles <ZXY directory> <output MBTiles file> [options]
 ```
 
 **Options:**
-- `--name <name>`: Set the tileset name (default: "Tiles")
-- `--description <desc>`: Set the tileset description (default: "Converted from ZXY")
-- `--format <format>`: Set the tile format (default: "png", supports: png, jpg, webp, pbf)
+- `--name <string>`: Tileset name
+- `--description <string>`: Tileset description
+- `--format <format>`: Tile format (default: "png", supports: png, jpg, webp, pbf)
+- `--batchsize <integer>`: Tile batch size for database inserts (default: 1000)
 
 **Examples:**
 ```bash
 # Basic conversion
-zxy-mbtiles ./tiles/ map.mbtiles
+zxy-mbtiles ./tiles/ tileset.mbtiles
 
 # With custom metadata
-zxy-mbtiles ./tiles/ map.mbtiles --name "My Map" --description "Custom tileset" --format jpg
+zxy-mbtiles ./tiles/ tileset.mbtiles --name "Hillshade tiles" --description "Pre-rendered terrain data"
+
+# With tile format and batch size specified
+zxy-mbtiles ./tiles/ tileset.mbtiles --format jpg --batchsize 10000
 ```
 
 **Features:**
 - Optimized SQLite database creation
-- Progress tracking
+- Progress tracking with tqdm
 - Multiple tile format support
-- Proper TMS to MBTiles coordinate conversion
 
 ## Directory Structure
 
