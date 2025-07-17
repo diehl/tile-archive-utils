@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tile-archive-utils"
+version = "0.0.1"
+description = "Utilities facilitating tile extraction from and integration into tile archives"
+authors = [
+    {name = "Chris Diehl", email = "diehl@alumni.cmu.edu"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "tqdm",
+    "click"
+]
+
+[project.scripts]
+pmtiles-zxy = "tile_archive_utils.pmtiles_to_zxy:main"
+zxy-mbtiles = "tile_archive_utils.zxy_to_mbtiles:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tile_archive_utils"]
+
+[project.urls]
+Homepage = "https://github.com/diehl/tile-archive-utils"
+Repository = "https://github.com/diehl/tile-archive-utils"
