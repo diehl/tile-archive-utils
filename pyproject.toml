@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tile-archive-utils"
-version = "0.0.1"
+version = "0.0.2"
 description = "Utilities facilitating tile extraction from and integration into tile archives"
 authors = [
     {name = "Chris Diehl", email = "diehl@alumni.cmu.edu"}
